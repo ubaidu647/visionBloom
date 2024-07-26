@@ -43,6 +43,9 @@
   --background-color: #f2f2f3;
   --surface-color: #ffffff;
 }
+.custom-h2class{
+  display: none;
+}
 
 .dark-background {
   --background-color: #000820;
@@ -547,6 +550,23 @@ h6 {
 
   .mobile-nav-active .navmenu>ul {
     display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .header .logo img {
+    max-height: 46px;
+    margin-right: 8px;
+  }
+  .header {
+    padding: 10px 0;
+  }
+  .custom-h2class{
+    display: block;
+color: var(--accent-color);
+text-decoration: blink;
+font-weight: bold;
+margin-bottom: -5px;
   }
 }
 
