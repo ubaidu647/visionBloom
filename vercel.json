@@ -16,7 +16,11 @@
   ],
   "routes": [
     {
-      "src": "/api/user/(.*)",
+      "src": "/api/user/info",
+      "dest": "src/routes/user/user.js"
+    },
+    {
+      "src": "/api/user/info/1",
       "dest": "src/routes/user/user.js"
     },
     {
