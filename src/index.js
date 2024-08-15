@@ -1,35 +1,12 @@
 const express = require('express')
 const path = require('path'); 
 require('dotenv').config();
-const Database = require('./database/config');
+const {connectMongoClient,connectMongoose } = require('./database/config');
 
 const app = express();
 
-// Middleware to ensure connections are established
-// app.use(async (req, res, next) => {
-//   if (!mongoClientConnected) {
-//     console.log("inside mongoclient", mongoClientConnected)
-//     await connectMongoClient();
-//     mongoClientConnected = true;
-//   }
-//   if (!mongooseConnected) {
-//     console.log("inside mongoose", mongooseConnected)
-
-//     await connectMongoose();
-//     mongooseConnected = true;
-//   }
-//   next();
-// });
-app.use(async (req, res, next) => {
-    try {
-      await Database.getMongoClient();
-      await Database.getMongoose();
-      next();
-    } catch (error) {
-      res.status(500).send('Database connection error');
-    }
-  });
-
+// connectMongoClient();
+// connectMongoose();
 app.set('views', path.join(__dirname, '../views'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
