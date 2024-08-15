@@ -24,7 +24,11 @@
       "dest": "src/routes/user/user.js"
     },
     {
-      "src": "/api/staff/(.*)",
+      "src": "/api/staff/info",
+      "dest": "src/routes/staff/staff.js"
+    },
+    {
+      "src": "/api/staff/info/1",
       "dest": "src/routes/staff/staff.js"
     },
     {
