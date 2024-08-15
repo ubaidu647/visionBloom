@@ -11,12 +11,12 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
 
 //Router
-const userRoutes = require('./routes/user/user');
-const staffRoutes = require('./routes/staff/staff');
+// const userRoutes = require('./routes/user/user');
+// const staffRoutes = require('./routes/staff/staff');
 
 
-app.use('/api', userRoutes)
-app.use('/api', staffRoutes)
+// app.use('/api', userRoutes)
+// app.use('/api', staffRoutes)
 // home page
 app.get("/", (req,res) => {
     res.render('./index.ejs')

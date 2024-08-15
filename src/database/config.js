@@ -4,13 +4,14 @@ const mongoose = require('mongoose');
 const client = new MongoClient(process.env.DB);
 const dbName = process.env.DBNAME;
 let dbInstance = null;
+let isMongooseConnected = false;
 
 async function connectMongoClient() {
   try {
     if (!dbInstance) {
       await client.connect();
       dbInstance = client.db(dbName);
-      console.log('MongoDB mongoClient DB successfully');
+      console.log('mongoClient DB connected successfully');
     }
     return dbInstance;
   } catch (err) {
@@ -22,8 +23,14 @@ async function connectMongoClient() {
 async function connectMongoose() {
     try {
   
-      await mongoose.connect(process.env.DB);
-      console.log("Connection mongoose db successful");
+      if (!isMongooseConnected) {
+        await mongoose.connect(process.env.DB, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+        });
+        isMongooseConnected = true;
+        console.log('Mongoose connected successfully');
+      }
     } catch (error) {
       console.error("DB error:", error);
     }
