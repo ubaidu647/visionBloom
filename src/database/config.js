@@ -24,10 +24,7 @@ async function connectMongoose() {
     try {
   
       if (!isMongooseConnected) {
-        await mongoose.connect(process.env.DB, {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-        });
+        await mongoose.connect(process.env.DB);
         isMongooseConnected = true;
         console.log('Mongoose connected successfully');
       }
