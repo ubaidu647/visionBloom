@@ -9,23 +9,23 @@ let mongoClientConnected = false;
 let mongooseConnected = false;
 
 // Middleware to ensure connections are established
-app.use(async (req, res, next) => {
-  if (!mongoClientConnected) {
-    console.log("inside mongoclient", mongoClientConnected)
-    await connectMongoClient();
-    mongoClientConnected = true;
-  }
-  if (!mongooseConnected) {
-    console.log("inside mongoose", mongooseConnected)
+// app.use(async (req, res, next) => {
+//   if (!mongoClientConnected) {
+//     console.log("inside mongoclient", mongoClientConnected)
+//     await connectMongoClient();
+//     mongoClientConnected = true;
+//   }
+//   if (!mongooseConnected) {
+//     console.log("inside mongoose", mongooseConnected)
 
-    await connectMongoose();
-    mongooseConnected = true;
-  }
-  next();
-});
+//     await connectMongoose();
+//     mongooseConnected = true;
+//   }
+//   next();
+// });
 
-// connectMongoClient();
-// connectMongoose();
+connectMongoClient();
+connectMongoose();
 app.set('views', path.join(__dirname, '../views'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
