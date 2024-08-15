@@ -11,10 +11,13 @@ let mongooseConnected = false;
 // Middleware to ensure connections are established
 app.use(async (req, res, next) => {
   if (!mongoClientConnected) {
+    console.log("inside mongoclient", mongoClientConnected)
     await connectMongoClient();
     mongoClientConnected = true;
   }
   if (!mongooseConnected) {
+    console.log("inside mongoose", mongooseConnected)
+
     await connectMongoose();
     mongooseConnected = true;
   }
@@ -32,7 +35,7 @@ app.set('view engine', 'ejs');
 // const staffRoutes = require('./routes/staff/staff');
 
 
-// app.use('/api', userRoutes)
+// app.use('/api/user', userRoutes)
 // app.use('/api', staffRoutes)
 // home page
 app.get("/", (req,res) => {
