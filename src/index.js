@@ -9,6 +9,12 @@ connectMongoose()
 app.set('views', path.join(__dirname, '../views'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
+
+//Router
+const userRoutes = require('./routes/user/user');
+
+
+app.use('/api', userRoutes)
 // home page
 app.get("/", (req,res) => {
     res.render('./index.ejs')
