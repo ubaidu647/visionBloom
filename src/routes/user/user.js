@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const router = express();
 
 
 router.get("/info", (req, res) => {
