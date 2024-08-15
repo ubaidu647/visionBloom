@@ -1,12 +1,9 @@
 const express = require('express')
 const path = require('path'); 
 require('dotenv').config();
-const {connectMongoClient,connectMongoose } = require('./database/config');
+const Database = require('./database/config');
 
 const app = express();
-// Global variables to store database connection instances
-let mongoClientConnected = false;
-let mongooseConnected = false;
 
 // Middleware to ensure connections are established
 // app.use(async (req, res, next) => {
@@ -23,9 +20,16 @@ let mongooseConnected = false;
 //   }
 //   next();
 // });
+app.use(async (req, res, next) => {
+    try {
+      await Database.getMongoClient();
+      await Database.getMongoose();
+      next();
+    } catch (error) {
+      res.status(500).send('Database connection error');
+    }
+  });
 
-connectMongoClient();
-connectMongoose();
 app.set('views', path.join(__dirname, '../views'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
