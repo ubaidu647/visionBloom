@@ -32,6 +32,21 @@
     .investment-package{
       font-size: 0.8em; /* Adjust the size as needed */
   font-weight: 300; /* Adjust the weight as needed */
+
+    }
+  .close-btn-btn{
+    background-color: #6c757d;
+    border: 2px solid #6c757d ;
+    display: inline-block;
+    padding: 12px 40px;
+    border-radius: 4px;
+    transition: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+    font-family: var(--heading-font);
+    color: #fff;
+   
     }
   </style>
 
@@ -116,7 +131,7 @@
             </div>
             <div class="col-lg-3">
               <h3>Where</h3>
-              <p>Vision Bloom Advertising, Adjacent waseem honda center, main G.T Road Kamra Attock. </p>
+              <p>Vision Bloom Advertising, Adjacent waseem honda center, Kamra Road Attock. </p>
             </div>
             <div class="col-lg-3">
               <h3>When</h3>
@@ -866,10 +881,66 @@
             </ul>
           </div>
           <div class="col-lg-3 d-flex align-items-center justify-content-center">
-            <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+            <div class="text-center"><button type="button" data-bs-toggle="modal" data-bs-target="#buyNow1" data-bs-whatever="Standard Package (Investment Package)" class="buy-btn">Buy Now</button>
+            
+            </div>
           </div>
         </div><!-- End Pricing Item -->
 
+
+        <!-- modal 1 -->
+<div class="modal fade" id="buyNow1" tabindex="-1" aria-labelledby="buyNow1Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="buyNow1Label">Buy Package</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="formID" >
+        <form method="post"  onsubmit="onSubmit(event)">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Package Name:</label>
+            <input type="text" value="" class="form-control" name="packageName" id="recipient-name" readonly disabled>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="col-form-label">Name:</label>
+            <input type="text" name="name" placeholder="Enter Name" class="form-control" id="name">
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" placeholder="Enter Email" name="email" id="email">
+          </div>
+
+           <div class="mb-3">
+            <label for="name" class="col-form-label">Mobile Number:</label>
+            <input type="text" pattern="[0]{1}[0-9]{10}" placeholder="Mobile Number"  title="e.g 03215678567" class="form-control" name="mobileNumber" id="mobileNumber">
+          </div>
+
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" name="message" id="message-text"></textarea>
+          </div>
+        
+      </div>
+      <div class="modal-footer" id="formID2">
+        <button type="button" class="btn btn-secondary close-btn-btn" data-bs-dismiss="modal">Close</button>
+        <button  type="submit" id="submitButton" class="buy-tickets buy-btn"  >
+          <span class="button-text">Submit</span>
+          <span class="loaders" style="display: none;">Loading...</span>
+          </button>
+      </div>
+      </form>
+
+       <div class="mb-3" id="messageID" style="display: none;" >
+<h3  style="font-style: italic;color: #f82249;padding: 10rem 3rem;font-size: 1.5rem;">You Have Successfully Avail This Package. Soon Our representative will contact for more detail. Thanks </h3>
+          </div>
+          <div class="mb-3" id="messageID2" style="display: none;" >
+<h3  style="font-style: italic;color: #f82249;padding: 10rem 3rem;font-size: 1.5rem;">You Have Already Avail This Package. Kindly Select another Package. Thanks </h3>
+          </div>
+    </div>
+  </div>
+</div>
         <div class="row gy-4 pricing-item featured mt-4" data-aos="fade-up" data-aos-delay="200">
           <div class="col-lg-3 d-flex align-items-center justify-content-center">
             <h3>Premium Package <br> <span class="investment-package">(Ads Package)</span></h3>
@@ -885,7 +956,7 @@
             </ul>
           </div>
           <div class="col-lg-3 d-flex align-items-center justify-content-center">
-            <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+            <div class="text-center"><button type="button" data-bs-toggle="modal" data-bs-target="#buyNow1" data-bs-whatever="Premium Package (Ads Package)" class="buy-btn">Buy Now</button></div>
           </div>
         </div><!-- End Pricing Item -->
 
@@ -904,7 +975,7 @@
             </ul>
           </div>
           <div class="col-lg-3 d-flex align-items-center justify-content-center">
-            <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+            <div class="text-center"><button type="button" data-bs-toggle="modal" data-bs-target="#buyNow1" data-bs-whatever="Pro Package (Ads Package)" class="buy-btn">Buy Now</button></div>
           </div>
         </div><!-- End Pricing Item -->
 
@@ -929,7 +1000,7 @@
             <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-geo-alt"></i>
               <h3>Address</h3>
-              <p>Vision Bloom Advertising,Adjacent waseem honda center, main G.T Road Kamra Attock.</p>
+              <p>Vision Bloom Advertising,Adjacent waseem honda center, Kamra Road Attock.</p>
             </div>
           </div><!-- End Info Item -->
 
@@ -1007,7 +1078,7 @@
             </a>
             <div class="footer-contact pt-3">
               <p>Vision Bloom Advertising,</p>
-              <p> Adjacent waseem honda center, main G.T Road Kamra Attock.</p>
+              <p> Adjacent waseem honda center, Kamra Road Attock.</p>
               <p class="mt-3"><strong>Phone:</strong> <span>+92-319-4905160</span></p>
               <p><strong>Email:</strong> <span>visionbloomadvertising@gmail.com</span></p>
             </div>
@@ -1070,7 +1141,144 @@
   <!-- Main JS File -->
    
   <script src="/assets/js/main.js"></script>
+<script>
+  const onSubmit = (event) => {
+    event.preventDefault();
 
+    const submitButton = document.getElementById('submitButton');
+  const loader = submitButton.querySelector('.loaders');
+  const buttonText = submitButton.querySelector('.button-text');
+  
+  // Show loader and hide button text
+  loader.style.display = 'inline';
+  buttonText.style.display = 'none';
+
+    const packageName=document.getElementById("recipient-name").value;
+
+    const formData=new FormData(event.target);
+    const payload={
+      name:formData.get("name"),
+      email:formData.get("email"),
+      mobileNumber:formData.get("mobileNumber"),
+      message:formData.get("message"),
+      packageName,
+    }
+    if(!payload.name) return;
+
+    fetch(
+      'standard/package',{
+        method:"POST",
+        body:JSON.stringify(payload),
+        headers:{
+          'Content-Type': 'application/json'
+        }
+       
+      }
+    ).then(async (res)=>{
+      // console.log("This is stupid response",await res.json())
+          
+    // const data = await res.json();
+    
+    // Handle success response
+    // alert('Success: ' + JSON.stringify(data));
+    // console.log("RES>STATUS", res.status)
+    if(res.status <= 300 && res.status >= 200 ){
+      // console.log("Inside 300")
+      const disappearForm = document.getElementById("formID");
+      const disappearForm2 = document.getElementById("formID2");
+      disappearForm.style.display = "none";
+      disappearForm2.style.display = "none";
+      const messageShow = document.getElementById("messageID");
+      messageShow.style.display = "block";
+    }
+    if(res.status <= 500 && res.status >= 400){
+      const disappearForm = document.getElementById("formID");
+      const disappearForm2 = document.getElementById("formID2");
+      disappearForm.style.display = "none";
+      disappearForm2.style.display = "none";
+      const messageShow = document.getElementById("messageID2");
+      messageShow.style.display = "block";
+    }
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+    
+  }
+  const exampleModal = document.getElementById('buyNow1')
+if (exampleModal) {
+  exampleModal.addEventListener('show.bs.modal', event => {
+    // Button that triggered the modal
+    const button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    const recipient = button.getAttribute('data-bs-whatever')
+    // If necessary, you could initiate an Ajax request here
+    // and then do the updating in a callback.
+
+    // Update the modal's content.
+    const modalTitle = exampleModal.querySelector('.modal-title')
+    const modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+    modalTitle.textContent = `${recipient}`
+    modalBodyInput.value = recipient
+  })
+}
+</script>
+
+<script>
+        // Function to handle aria-hidden changes
+        function onAriaHiddenChange(isHidden) {
+            if (isHidden) {
+                // console.log('Modal is hidden');
+
+                 const disappearForm = document.getElementById("formID");
+      const disappearForm2 = document.getElementById("formID2");
+      disappearForm.style.display = "block";
+      disappearForm2.style.display = "flex";
+      const messageShow = document.getElementById("messageID");
+      messageShow.style.display = "none";
+      const messageShow2 = document.getElementById("messageID2");
+      messageShow2.style.display = "none";
+
+        const submitButton = document.getElementById('submitButton');
+  const loader = submitButton.querySelector('.loaders');
+  const buttonText = submitButton.querySelector('.button-text');
+  
+  // Show loader and hide button text
+  loader.style.display = 'none';
+  buttonText.style.display = 'block';
+
+  document.getElementById("name").value= "";
+  document.getElementById("email").value = "";
+   document.getElementById("mobileNumber").value = "";
+   document.getElementById("message-text").value = "";
+
+
+                // Perform actions when aria-hidden is true
+            } else {
+              
+                // Perform actions when aria-hidden is false or removed
+            }
+        }
+
+        // Select the modal element
+        const modalElement = document.getElementById('buyNow1');
+
+        // Create a MutationObserver instance
+        const observer = new MutationObserver((mutationsList) => {
+            mutationsList.forEach(mutation => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'aria-hidden') {
+                    const isHidden = modalElement.getAttribute('aria-hidden') === 'true';
+                    onAriaHiddenChange(isHidden);
+                }
+            });
+        });
+
+        // Start observing the modal element for attribute changes
+        observer.observe(modalElement, {
+            attributes: true // Monitor attribute changes
+        });
+    </script>
 </body>
 
 </html>
