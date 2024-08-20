@@ -3,9 +3,9 @@ const router = express();
 const User = require('../../model/user')
 const {connectMongoClient,connectMongoose } = require('../../database/config');
 const nodemailer = require('nodemailer');
-
+ 
 router.post("/package", async (req, res) => {
-    connectMongoose();
+  await connectMongoose();
     // console.log('Request to /info');
     // console.log('req.body', req.body)
     if(req.body.packageName === 'Standard Package (Investment Package)'){
